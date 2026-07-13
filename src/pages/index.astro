@@ -1,12 +1,12 @@
 ---
 const people = [
-  { id: 'nacho', name: 'Nacho', image: '/uploads/nacho.jpg', alt: 'Imagen del personaje Nacho' },
-  { id: 'teti', name: 'Teti', image: '/uploads/teti.jpg', alt: 'Imagen del personaje Teti' },
-  { id: 'naza', name: 'Naza', image: '/uploads/naza.jpg', alt: 'Imagen del personaje Naza' },
-  { id: 'manu', name: 'Manu', image: '/uploads/manu.jpg', alt: 'Imagen del personaje Manu' },
-  { id: 'luzzini', name: 'Luzzini', image: '/uploads/luzzini.jpg', alt: 'Imagen del personaje Luzzini' },
-  { id: 'migue', name: 'Migue', image: '/uploads/migue.jpg', alt: 'Imagen del personaje Migue' },
-  { id: 'mari', name: 'Mari', image: '/uploads/mari.jpg', alt: 'Imagen del personaje Mari' },
+  { id: 'nacho', name: 'Nacho', image: '/uploads/nacho.png', alt: 'Imagen del personaje Nacho' },
+  { id: 'teti', name: 'Teti', image: '/uploads/teti.png', alt: 'Imagen del personaje Teti' },
+  { id: 'naza', name: 'Naza', image: '/uploads/naza.png', alt: 'Imagen del personaje Naza' },
+  { id: 'manu', name: 'Manu', image: '/uploads/manu.png', alt: 'Imagen del personaje Manu' },
+  { id: 'luzzini', name: 'Luzzini', image: '/uploads/luzzini.png', alt: 'Imagen del personaje Luzzini' },
+  { id: 'migue', name: 'Migue', image: '/uploads/migue.png', alt: 'Imagen del personaje Migue' },
+  { id: 'mari', name: 'Mari', image: '/uploads/mari.png', alt: 'Imagen del personaje Mari' },
 ];
 
 const groups = {
@@ -120,7 +120,6 @@ const groups = {
             <span class="shine" aria-hidden="true"></span>
             <span class="portrait">
               <img src={person.image} alt={person.alt} loading="lazy" />
-              <span class="initials" aria-hidden="true">{person.name.slice(0, 2)}</span>
               <span class="group-name" aria-live="polite"></span>
             </span>
             <span class="person-name">{person.name}</span>
@@ -171,11 +170,11 @@ const groups = {
 <style>
   :root {
     color-scheme: dark;
-    --cream: #fff7e7;
-    --pink: #ff4f9a;
-    --orange: #ff9d3d;
-    --violet: #5c38ff;
-    --ink: #11091d;
+    --text: #eaf3ff;
+    --blue: #2f8cff;
+    --blue-soft: #83c7ff;
+    --navy: #07111f;
+    --ink: #03060b;
   }
 
   * {
@@ -187,10 +186,10 @@ const groups = {
     min-height: 100vh;
     overflow-x: hidden;
     background:
-      radial-gradient(circle at 18% 18%, rgba(255, 79, 154, 0.34), transparent 28rem),
-      radial-gradient(circle at 82% 12%, rgba(255, 157, 61, 0.28), transparent 30rem),
-      linear-gradient(135deg, #130722 0%, #241048 46%, #07020f 100%);
-    color: var(--cream);
+      radial-gradient(circle at 18% 18%, rgba(47, 140, 255, 0.22), transparent 28rem),
+      radial-gradient(circle at 82% 12%, rgba(131, 199, 255, 0.12), transparent 30rem),
+      linear-gradient(135deg, #010308 0%, #07111f 48%, #000 100%);
+    color: var(--text);
     font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   }
 
@@ -199,14 +198,14 @@ const groups = {
     inset: 0;
     pointer-events: none;
     content: "";
-    background-image: linear-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+    background-image: linear-gradient(rgba(131, 199, 255, 0.07) 1px, transparent 1px), linear-gradient(90deg, rgba(47, 140, 255, 0.06) 1px, transparent 1px);
     background-size: 54px 54px;
     mask-image: radial-gradient(circle at center, black, transparent 78%);
   }
 
   .stage {
     position: relative;
-    width: min(1180px, calc(100% - 32px));
+    width: min(1420px, calc(100% - 32px));
     min-height: 100vh;
     margin: 0 auto;
     padding: clamp(42px, 8vw, 86px) 0;
@@ -219,30 +218,30 @@ const groups = {
     line-height: 0.78;
     letter-spacing: -0.12em;
     color: transparent;
-    background: linear-gradient(90deg, #fff9dc 0%, #ffca5f 28%, #ff4f9a 62%, #b9a4ff 100%);
+    background: linear-gradient(90deg, #f3f8ff 0%, #83c7ff 42%, #2f8cff 100%);
     -webkit-background-clip: text;
     background-clip: text;
-    filter: drop-shadow(0 28px 50px rgba(255, 79, 154, 0.22));
+    filter: drop-shadow(0 28px 50px rgba(47, 140, 255, 0.26));
   }
 
   .cards {
     display: grid;
-    grid-template-columns: repeat(7, minmax(112px, 1fr));
-    gap: clamp(14px, 2vw, 22px);
+    grid-template-columns: repeat(7, minmax(150px, 1fr));
+    gap: clamp(14px, 1.7vw, 22px);
     align-items: stretch;
   }
 
   .person-card {
     position: relative;
     display: grid;
-    gap: 13px;
+    gap: 15px;
     min-width: 0;
-    padding: 10px 10px 15px;
-    border: 1px solid rgba(255, 255, 255, 0.18);
+    padding: 12px 12px 16px;
+    border: 1px solid rgba(131, 199, 255, 0.18);
     border-radius: 30px;
     overflow: hidden;
-    background: linear-gradient(160deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.055));
-    box-shadow: 0 26px 70px rgba(0, 0, 0, 0.32), inset 0 1px 0 rgba(255, 255, 255, 0.25);
+    background: linear-gradient(160deg, rgba(10, 28, 50, 0.9), rgba(3, 6, 11, 0.84));
+    box-shadow: 0 26px 70px rgba(0, 0, 0, 0.42), inset 0 1px 0 rgba(131, 199, 255, 0.16);
     color: inherit;
     cursor: pointer;
     transform: translateY(0) rotate(var(--tilt, 0deg));
@@ -260,15 +259,15 @@ const groups = {
   .person-card:hover,
   .person-card:focus-visible {
     transform: translateY(-10px) rotate(0deg) scale(1.02);
-    border-color: rgba(255, 255, 255, 0.46);
-    box-shadow: 0 34px 90px rgba(0, 0, 0, 0.42), 0 0 42px rgba(255, 79, 154, 0.18);
+    border-color: rgba(131, 199, 255, 0.54);
+    box-shadow: 0 34px 90px rgba(0, 0, 0, 0.52), 0 0 42px rgba(47, 140, 255, 0.22);
     outline: none;
   }
 
   .person-card.is-selected {
-    background: linear-gradient(160deg, rgba(255, 209, 102, 0.33), rgba(255, 79, 154, 0.2));
-    border-color: rgba(255, 247, 231, 0.72);
-    box-shadow: 0 34px 95px rgba(255, 79, 154, 0.28), inset 0 0 0 1px rgba(255, 255, 255, 0.28);
+    background: linear-gradient(160deg, rgba(47, 140, 255, 0.32), rgba(3, 6, 11, 0.92));
+    border-color: rgba(131, 199, 255, 0.78);
+    box-shadow: 0 34px 95px rgba(47, 140, 255, 0.24), inset 0 0 0 1px rgba(131, 199, 255, 0.24);
   }
 
   .shine {
@@ -276,7 +275,7 @@ const groups = {
     inset: -40% auto auto -35%;
     width: 120px;
     height: 180%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.32), transparent);
+    background: linear-gradient(90deg, transparent, rgba(131, 199, 255, 0.3), transparent);
     transform: rotate(24deg);
     transition: translate 300ms ease;
   }
@@ -289,12 +288,12 @@ const groups = {
   .portrait {
     position: relative;
     display: grid;
-    min-height: 245px;
+    min-height: 390px;
     overflow: hidden;
     border-radius: 23px;
     background:
-      radial-gradient(circle at 35% 22%, rgba(255, 255, 255, 0.56), transparent 18%),
-      linear-gradient(145deg, rgba(255, 157, 61, 0.92), rgba(255, 79, 154, 0.86) 45%, rgba(92, 56, 255, 0.92));
+      radial-gradient(circle at 35% 22%, rgba(131, 199, 255, 0.44), transparent 18%),
+      linear-gradient(145deg, rgba(12, 35, 62, 0.96), rgba(47, 140, 255, 0.58) 52%, rgba(1, 3, 8, 0.96));
   }
 
   .portrait img {
@@ -302,20 +301,12 @@ const groups = {
     inset: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
+    object-position: center bottom;
   }
 
   .portrait img.is-missing {
     display: none;
-  }
-
-  .initials {
-    place-self: center;
-    font-size: clamp(2.8rem, 5vw, 4.7rem);
-    font-weight: 950;
-    letter-spacing: -0.12em;
-    text-transform: uppercase;
-    text-shadow: 0 14px 32px rgba(40, 4, 58, 0.38);
   }
 
   .group-name {
@@ -340,8 +331,8 @@ const groups = {
     min-height: auto;
     padding: 10px 11px;
     border: 1px solid rgba(255, 255, 255, 0.4);
-    background: rgba(17, 9, 29, 0.72);
-    color: var(--cream);
+    background: rgba(3, 6, 11, 0.78);
+    color: var(--text);
     font-size: 0.78rem;
     backdrop-filter: blur(14px);
   }
@@ -356,7 +347,11 @@ const groups = {
 
   @media (max-width: 980px) {
     .cards {
-      grid-template-columns: repeat(3, minmax(150px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    }
+
+    .portrait {
+      min-height: 340px;
     }
   }
 
@@ -372,7 +367,7 @@ const groups = {
     }
 
     .portrait {
-      min-height: 205px;
+      min-height: 285px;
     }
 
     .person-card {

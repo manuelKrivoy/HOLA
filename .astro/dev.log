@@ -1,1 +1,61 @@
 {"message":"connected.","label":"vite","level":"info"}
+{"message":"Generated 2ms","label":"types","level":"info"}
+{"message":"connected.","label":"vite","level":"info"}
+{"message":"Re-optimizing dependencies because vite config has changed","label":"vite","level":"info"}
+{"message":" astro  v7.0.8 ready in 4059 ms\n┃ Local    http://localhost:4321/\n┃ Network  use --host to expose","label":"SKIP_FORMAT","level":"info"}
+{"message":"watching for file changes...","label":null,"level":"info"}
+[32m✔[0m [33mConsole Ninja[0m extension is connected to [33mVite[0m, see [36mhttps://tinyurl.com/2vt8jxzw[0m
+{"message":"[200] / 30ms","label":null,"level":"info"}
+{"message":"[404] /uploads/nacho.jpg 28ms","label":null,"level":"info"}
+{"message":"[404] /uploads/teti.jpg 23ms","label":null,"level":"info"}
+{"message":"[404] /uploads/naza.jpg 20ms","label":null,"level":"info"}
+{"message":"[404] /uploads/manu.jpg 15ms","label":null,"level":"info"}
+{"message":"[404] /uploads/luzzini.jpg 12ms","label":null,"level":"info"}
+{"message":"[404] /uploads/migue.jpg 6ms","label":null,"level":"info"}
+{"message":"[404] /uploads/mari.jpg 1ms","label":null,"level":"info"}
+{"message":"[200] / 4ms","label":null,"level":"info"}
+{"message":"[404] /uploads/nacho.jpg 1ms","label":null,"level":"info"}
+{"message":"[404] /uploads/teti.jpg 1ms","label":null,"level":"info"}
+{"message":"[404] /uploads/naza.jpg 1ms","label":null,"level":"info"}
+{"message":"[404] /uploads/manu.jpg 0ms","label":null,"level":"info"}
+{"message":"[404] /uploads/luzzini.jpg 1ms","label":null,"level":"info"}
+{"message":"[404] /uploads/migue.jpg 1ms","label":null,"level":"info"}
+{"message":"[404] /uploads/mari.jpg 1ms","label":null,"level":"info"}
+{"message":"[404] /uploads/nacho.jpg 0ms","label":null,"level":"info"}
+{"message":"[404] /uploads/teti.jpg 1ms","label":null,"level":"info"}
+{"message":"[404] /uploads/naza.jpg 0ms","label":null,"level":"info"}
+{"message":"[404] /uploads/manu.jpg 1ms","label":null,"level":"info"}
+{"message":"[404] /uploads/luzzini.jpg 0ms","label":null,"level":"info"}
+{"message":"[404] /uploads/migue.jpg 0ms","label":null,"level":"info"}
+{"message":"[404] /uploads/mari.jpg 1ms","label":null,"level":"info"}
+{"message":"[404] /uploads/nacho.jpg 1ms","label":null,"level":"info"}
+{"message":"[404] /uploads/teti.jpg 2ms","label":null,"level":"info"}
+{"message":"[404] /uploads/naza.jpg 1ms","label":null,"level":"info"}
+{"message":"[404] /uploads/manu.jpg 1ms","label":null,"level":"info"}
+{"message":"[404] /uploads/luzzini.jpg 1ms","label":null,"level":"info"}
+{"message":"[404] /uploads/migue.jpg 1ms","label":null,"level":"info"}
+{"message":"[404] /uploads/mari.jpg 1ms","label":null,"level":"info"}
+{"message":"/src/pages/index.astro?astro&type=style&index=0&lang.css","label":"watch","level":"info"}
+{"message":"[200] / 25ms","label":null,"level":"info"}
+{"message":"[200] / 6ms","label":null,"level":"info"}
+{"message":"/src/pages/index.astro?astro&type=style&index=0&lang.css","label":"watch","level":"info"}
+{"message":"[200] / 71ms","label":null,"level":"info"}
+{"message":"[200] / 6ms","label":null,"level":"info"}
+{"message":"[200] / 6ms","label":null,"level":"info"}
+{"message":"[200] / 4ms","label":null,"level":"info"}
+{"message":"[200] / 4ms","label":null,"level":"info"}
+{"message":"/src/pages/index.astro?astro&type=style&index=0&lang.css","label":"watch","level":"info"}
+{"message":"[200] / 7ms","label":null,"level":"info"}
+{"message":"[404] /uploads/migue.png 1ms","label":null,"level":"info"}
+{"message":"[404] /uploads/migue.png 1ms","label":null,"level":"info"}
+{"message":"[200] / 10ms","label":null,"level":"info"}
+{"message":"[404] /uploads/migue.png 1ms","label":null,"level":"info"}
+{"message":"[404] /uploads/migue.png 1ms","label":null,"level":"info"}
+{"message":"[404] /uploads/migue.png 2ms","label":null,"level":"info"}
+{"message":"[404] /uploads/migue.png 1ms","label":null,"level":"info"}
+{"message":"[404] /uploads/migue.png 1ms","label":null,"level":"info"}
+{"message":"[404] /uploads/migue.png 1ms","label":null,"level":"info"}
+{"message":"[200] / 6ms","label":null,"level":"info"}
+{"message":"/src/pages/index.astro?astro&type=style&index=0&lang.css","label":"watch","level":"info"}
+{"message":"[200] / 18ms","label":null,"level":"info"}
+{"message":"[200] / 2ms","label":null,"level":"info"}
