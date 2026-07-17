@@ -20,7 +20,10 @@ const sheetUrl = 'https://docs.google.com/spreadsheets/d/13zG1njwgv2FaguvJdzry9p
     <meta name="description" content="Editor de relaciones HOLA conectado a Google Sheets." />
   </head>
   <body>
-    <main class="shell">
+    <main class="shell is-loading" aria-busy="true">
+      <div class="loading-message" role="status">
+        <img src="https://static.wikia.nocookie.net/kickbuttowski/images/a/a9/Bradley_Buttowski.webp/revision/latest?cb=20231025045829&path-prefix=es" alt="Brad Buttowski" />
+      </div>
       <header class="hero">
         <p class="eyebrow">Relaciones HOLA</p>
         <h1>ESOBRAD</h1>
@@ -88,7 +91,9 @@ const sheetUrl = 'https://docs.google.com/spreadsheets/d/13zG1njwgv2FaguvJdzry9p
       };
 
       let groups = {};
+      let isReady = false;
 
+      const shell = document.querySelector('.shell');
       const checkboxes = Array.from(document.querySelectorAll('.person-option input'));
       const nameInput = document.querySelector('#group-name');
       const selectedKey = document.querySelector('#selected-key');
@@ -189,10 +194,15 @@ const sheetUrl = 'https://docs.google.com/spreadsheets/d/13zG1njwgv2FaguvJdzry9p
       };
 
       checkboxes.forEach((input) => {
-        input.addEventListener('change', syncSelectionName);
+        input.addEventListener('change', () => {
+          if (!isReady) return;
+          syncSelectionName();
+        });
       });
 
       document.querySelector('#confirm-relation').addEventListener('click', async () => {
+        if (!isReady) return;
+
         const people = getSelectedIds();
         const key = normalizeKey(people);
         const name = nameInput.value.trim();
@@ -227,10 +237,16 @@ const sheetUrl = 'https://docs.google.com/spreadsheets/d/13zG1njwgv2FaguvJdzry9p
       loadGroups()
         .then((loadedGroups) => {
           setGroups(loadedGroups);
+          isReady = true;
+          shell.classList.remove('is-loading');
+          shell.removeAttribute('aria-busy');
           setStatus(SHEET_ENDPOINT ? 'Relaciones cargadas desde Google Sheets' : 'Configura SHEET_ENDPOINT para cargar relaciones');
         })
         .catch((error) => {
           setGroups({});
+          isReady = true;
+          shell.classList.remove('is-loading');
+          shell.removeAttribute('aria-busy');
           setStatus(error.message);
         });
     </script>
@@ -274,6 +290,50 @@ const sheetUrl = 'https://docs.google.com/spreadsheets/d/13zG1njwgv2FaguvJdzry9p
     width: min(1180px, calc(100% - 28px));
     margin: 0 auto;
     padding: clamp(28px, 6vw, 72px) 0;
+  }
+
+  .shell.is-loading > :not(.loading-message) {
+    visibility: hidden;
+  }
+
+  .loading-message {
+    position: fixed;
+    inset: 50% auto auto 50%;
+    display: grid;
+    gap: 18px;
+    place-items: center;
+    margin: 0;
+    color: var(--cyan);
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    transform: translate(-50%, -50%);
+  }
+
+  .loading-message img {
+    width: min(220px, 54vw);
+    max-height: 300px;
+    object-fit: contain;
+    filter: drop-shadow(0 26px 42px rgba(47, 140, 255, 0.36));
+    animation: brad-bounce 0.95s ease-in-out infinite alternate;
+  }
+
+  .loading-message span {
+    white-space: nowrap;
+  }
+
+  @keyframes brad-bounce {
+    from {
+      transform: translateY(0) rotate(-2deg);
+    }
+
+    to {
+      transform: translateY(-14px) rotate(2deg);
+    }
+  }
+
+  .shell:not(.is-loading) .loading-message {
+    display: none;
   }
 
   .hero {

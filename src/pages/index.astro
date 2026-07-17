@@ -19,7 +19,11 @@ const people = [
     <meta name="description" content="Landing de personajes HOLA con cards seleccionables." />
   </head>
   <body>
-    <main class="stage">
+    <main class="stage is-loading" aria-busy="true">
+      <div class="loading-message" role="status">
+        <img src="https://static.wikia.nocookie.net/kickbuttowski/images/a/a9/Bradley_Buttowski.webp/revision/latest?cb=20231025045829&path-prefix=es" alt="Brad Buttowski" />
+
+      </div>
       <h1>HOLA</h1>
 
       <section class="cards" aria-label="Personajes">
@@ -44,7 +48,9 @@ const people = [
         luzzni: 'luzzini',
       };
       let groups = {};
+      let isReady = false;
       const selected = new Set();
+      const stage = document.querySelector('.stage');
       const cards = Array.from(document.querySelectorAll('.person-card'));
 
       const getKey = () => Array.from(selected).sort().join('-');
@@ -111,7 +117,9 @@ const people = [
           image.classList.add('is-missing');
         });
 
-        card.addEventListener('click', () => {
+          card.addEventListener('click', () => {
+          if (!isReady) return;
+
           const person = card.dataset.person;
 
           if (selected.has(person)) selected.delete(person);
@@ -124,10 +132,18 @@ const people = [
       loadGroups()
         .then((loadedGroups) => {
           groups = loadedGroups;
+          isReady = true;
           updateCards();
+          stage.classList.remove('is-loading');
+          stage.removeAttribute('aria-busy');
         })
         .catch((error) => {
           console.error(error);
+          groups = {};
+          isReady = true;
+          updateCards();
+          stage.classList.remove('is-loading');
+          stage.removeAttribute('aria-busy');
         });
     </script>
   </body>
@@ -175,6 +191,50 @@ const people = [
     min-height: 100vh;
     margin: 0 auto;
     padding: clamp(42px, 8vw, 86px) 0;
+  }
+
+  .stage.is-loading > :not(.loading-message) {
+    visibility: hidden;
+  }
+
+  .loading-message {
+    position: absolute;
+    inset: 50% auto auto 50%;
+    display: grid;
+    gap: 18px;
+    place-items: center;
+    margin: 0;
+    color: var(--blue-soft);
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    transform: translate(-50%, -50%);
+  }
+
+  .loading-message img {
+    width: min(220px, 54vw);
+    max-height: 300px;
+    object-fit: contain;
+    filter: drop-shadow(0 26px 42px rgba(47, 140, 255, 0.36));
+    animation: brad-bounce 0.95s ease-in-out infinite alternate;
+  }
+
+  .loading-message span {
+    white-space: nowrap;
+  }
+
+  @keyframes brad-bounce {
+    from {
+      transform: translateY(0) rotate(-2deg);
+    }
+
+    to {
+      transform: translateY(-14px) rotate(2deg);
+    }
+  }
+
+  .stage:not(.is-loading) .loading-message {
+    display: none;
   }
 
   h1 {
