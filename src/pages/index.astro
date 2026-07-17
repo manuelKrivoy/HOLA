@@ -9,98 +9,6 @@ const people = [
   { id: 'mari', name: 'Mari', image: '/uploads/mari.png', alt: 'Imagen del personaje Mari' },
 ];
 
-const groups = {
-  'luzzini-manu-mari-migue-nacho-naza-teti': 'hola',
-  'luzzini-manu-migue-nacho-naza-teti': 'hola RJ',
-  'luzzini-manu-mari-nacho-naza-teti': 'hola info',
-  'manu-mari-migue-nacho-naza-teti': 'hola rey leon',
-  'luzzini-mari-migue-nacho-naza-teti': 'hola gluten',
-  'luzzini-manu-mari-migue-nacho-teti': 'hola gaming',
-  'luzzini-manu-mari-migue-nacho-naza': 'hola deportes',
-  'luzzini-manu-mari-migue-naza-teti': 'hola novios',
-  'luzzini-manu-mari-migue-naza': 'hola pasaporte desvirgado',
-  'luzzini-manu-mari-migue-teti': 'hola faso',
-  'luzzini-mari-migue-naza-teti': 'hola FDD',
-  'manu-mari-migue-naza-teti': 'hola nombre empiezan con consonantes',
-  'luzzini-manu-mari-naza-teti': 'hola graduacion de chiari',
-  'luzzini-manu-migue-naza-teti': 'hola iphone',
-  'luzzini-manu-mari-migue-nacho': 'hola Play 3',
-  'luzzini-manu-mari-nacho-naza': 'hola hermanos',
-  'luzzini-mari-migue-nacho-teti': 'hola sur',
-  'manu-mari-migue-nacho-teti': 'hola respetuosos ( no ortos )',
-  'luzzini-manu-mari-nacho-teti': 'hola mascotas',
-  'luzzini-manu-migue-nacho-teti': 'hola cuerpo a tierra mdq2025 / hola diestros',
-  'mari-migue-nacho-naza-teti': 'hola casa j4boss',
-  'luzzini-mari-nacho-naza-teti': 'hola UTN',
-  'luzzini-migue-nacho-naza-teti': 'hola Bresh VCP',
-  'manu-mari-nacho-naza-teti': 'hola fueron a uruguay',
-  'manu-mari-migue-naza': 'hola europa',
-  'luzzini-manu-mari-naza': 'hola kartings',
-  'luzzini-mari-migue-teti': 'hola ayyy es re timido tu amigo (tetona sur)',
-  'manu-migue-naza-teti': 'hola viven solos',
-  'luzzini-manu-naza-teti': 'hola partido de los trabajadores',
-  'manu-mari-migue-nacho': 'hola central',
-  'luzzini-manu-migue-nacho': 'hola Mr Jhones',
-  'luzzini-mari-nacho-naza': 'hola ojos claros',
-  'luzzini-migue-nacho-naza': 'hola 2002',
-  'luzzini-mari-nacho-teti': 'hola resortes',
-  'mari-nacho-naza-teti': 'hola nombres terminan en o',
-  'luzzini-nacho-naza-teti': 'hola ingenieros',
-  'manu-nacho-naza-teti': 'hola basquet poli',
-  'nacho-naza-teti': 'hola programacion competitiva',
-  'luzzini-nacho-naza': 'hola espanol',
-  'migue-nacho-naza': 'hola pesados',
-  'mari-nacho-naza': 'hola rubios',
-  'luzzini-manu-nacho': 'hola auto vcp',
-  'manu-migue-nacho': 'hola pieza RJ',
-  'manu-mari-nacho': 'hola hermanos mati',
-  'luzzini-migue-nacho': 'hola peugeot',
-  'luzzini-mari-nacho': 'hola Argentina-Venezuela post Copa america 2021',
-  'mari-migue-nacho': 'hola naruto',
-  'luzzini-naza-teti': 'hola newells / hola thorque',
-  'migue-naza-teti': 'hola auto mdq ??',
-  'mari-naza-teti': 'hola auto vcp',
-  'luzzini-manu-teti': 'hola relojes',
-  'manu-migue-teti': 'hola peronistas / hola ojos oscuros',
-  'manu-mari-teti': 'hola 2001',
-  'luzzini-migue-teti': 'hola post festejo copa america 2021',
-  'mari-migue-teti': 'Hola pagaron por sexo',
-  'luzzini-manu-naza': 'hola ro gonzalez',
-  'manu-migue-naza': 'hola torres',
-  'luzzini-migue-naza': 'hola prohibidos',
-  'luzzini-mari-naza': 'hola cumple manu roldan',
-  'luzzini-manu-migue': 'hola nombres terminan en consonantes',
-  'manu-mari-migue': 'hola the forest',
-  'luzzini-mari-migue': 'hola gordo tira flecha',
-  'nacho-teti': 'hola cocineros',
-  'nacho-naza': 'hola republica de la sexta',
-  'manu-nacho': 'hola casa en funes',
-  'luzzini-nacho': 'hola futbol utn',
-  'migue-nacho': 'hola auto de fede a santiago del estero',
-  'mari-nacho': 'hola samsung',
-  'naza-teti': 'hola rosario software',
-  'manu-teti': 'hola gatos',
-  'luzzini-teti': 'hola feria del libro',
-  'migue-teti': 'hola ccf',
-  'mari-teti': 'hola OIA',
-  'manu-naza': 'hola pelea 4to poli',
-  'luzzini-naza': 'hola colectora',
-  'migue-naza': 'hola samsara + anana',
-  'mari-naza': 'hola deporte spu',
-  'luzzini-manu': 'hola Russia / hola fierreros',
-  'manu-migue': 'hola madres Conicet / hola cuartito del boliche / hola pelado',
-  'manu-mari': 'hola madre con apellido croata',
-  'luzzini-migue': 'hola primos amigos',
-  'luzzini-mari': 'hola ojos celestes',
-  'mari-migue': 'hola stardew valley',
-  'nacho': 'hola nacho',
-  'teti': 'hola debut con la chani',
-  'naza': 'hola chimenea',
-  'manu': 'hola hermanas',
-  'luzzini': 'hola luzzini',
-  'migue': 'hola migue',
-  'mari': 'hola girlfriend speedrun',
-};
 ---
 
 <html lang="es">
@@ -128,11 +36,60 @@ const groups = {
       </section>
     </main>
 
-    <script define:vars={{ groups }}>
+    <script>
+      const STORAGE_KEY = 'esobrad-relaciones';
+      const SHEET_ENDPOINT = 'https://script.google.com/macros/s/AKfycbxJ1btxfF0FdU4C3tvpaWFUJ8xg9a8pcF_0-DExM5Tbr09fNpf-PV-BlbTpxAdoOjZi/exec';
+      const PEOPLE_ORDER = ['luzzini', 'manu', 'mari', 'migue', 'nacho', 'naza', 'teti'];
+      const PERSON_ALIASES = {
+        luzzni: 'luzzini',
+      };
+      let groups = {};
       const selected = new Set();
       const cards = Array.from(document.querySelectorAll('.person-card'));
 
       const getKey = () => Array.from(selected).sort().join('-');
+
+      const normalizePerson = (value) => {
+        const normalized = String(value ?? '').trim().toLowerCase();
+        return PERSON_ALIASES[normalized] || normalized;
+      };
+
+      const rowsToGroups = (rows) => Object.fromEntries(
+        rows
+          .map((row) => {
+            const key = row
+              .slice(0, 7)
+              .map(normalizePerson)
+              .filter((person) => PEOPLE_ORDER.includes(person))
+              .sort()
+              .join('-');
+            const name = String(row[8] ?? '').trim();
+            return [key, name];
+          })
+          .filter(([key, name]) => key && name)
+      );
+
+      const normalizeGroupsResponse = (data) => {
+        if (data?.groups && typeof data.groups === 'object') return data.groups;
+        if (Array.isArray(data?.rows)) return rowsToGroups(data.rows);
+        if (Array.isArray(data)) return rowsToGroups(data);
+        if (data && typeof data === 'object') return data;
+        return {};
+      };
+
+      const loadSheetGroups = async () => {
+        if (!SHEET_ENDPOINT) return {};
+
+        const response = await fetch(SHEET_ENDPOINT, { cache: 'no-store' });
+        if (!response.ok) throw new Error('No se pudo cargar la planilla');
+        return normalizeGroupsResponse(await response.json());
+      };
+
+      const loadGroups = async () => {
+        const sheetGroups = await loadSheetGroups();
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(sheetGroups));
+        return sheetGroups;
+      };
 
       const updateCards = () => {
         const groupName = groups[getKey()] || '';
@@ -163,6 +120,15 @@ const groups = {
           updateCards();
         });
       });
+
+      loadGroups()
+        .then((loadedGroups) => {
+          groups = loadedGroups;
+          updateCards();
+        })
+        .catch((error) => {
+          console.error(error);
+        });
     </script>
   </body>
 </html>
