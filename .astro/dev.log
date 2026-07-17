@@ -39,3 +39,6 @@
 {"message":"[200] / 25ms","label":null,"level":"info"}
 {"message":"src/pages/index.astro","label":"watch","level":"info"}
 {"message":"[200] / 23ms","label":null,"level":"info"}
+{"message":"src/pages/esobrad.astro","label":"watch","level":"info"}
+{"message":"[200] / 7ms","label":null,"level":"info"}
+{"message":"[200] /esobrad 7ms","label":null,"level":"info"}

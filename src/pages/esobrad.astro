@@ -157,7 +157,7 @@ const sheetUrl = 'https://docs.google.com/spreadsheets/d/13zG1njwgv2FaguvJdzry9p
 
       const syncSelectionName = () => {
         const key = getCurrentKey();
-        nameInput.value = key ? groups[key] || nameInput.value : '';
+        nameInput.value = key ? groups[key] || '' : '';
         selectedKey.textContent = key ? `Clave: ${key}` : 'Selecciona una o más personas.';
       };
 
