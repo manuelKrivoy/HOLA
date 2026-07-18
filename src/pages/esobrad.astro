@@ -1,15 +1,15 @@
 ---
 const people = [
-  { id: 'nacho', name: 'Nacho' },
-  { id: 'teti', name: 'Teti' },
-  { id: 'naza', name: 'Naza' },
-  { id: 'manu', name: 'Manu' },
-  { id: 'luzzini', name: 'Luzzini' },
-  { id: 'migue', name: 'Migue' },
-  { id: 'mari', name: 'Mari' },
+  { id: "nacho", name: "Nacho" },
+  { id: "teti", name: "Teti" },
+  { id: "naza", name: "Naza" },
+  { id: "manu", name: "Manu" },
+  { id: "luzzini", name: "Luzzini" },
+  { id: "migue", name: "Migue" },
+  { id: "mari", name: "Mari" },
 ];
 
-const sheetUrl = 'https://docs.google.com/spreadsheets/d/13zG1njwgv2FaguvJdzry9pdqusQKXBkQdJs3Mh4cOuk/edit?gid=0#gid=0';
+const sheetUrl = "https://docs.google.com/spreadsheets/d/1l7GgHaYGjc13u4XETjVI4sDm4t1dRYM9BPIN1mnZrs0/edit?gid=0#gid=0";
 ---
 
 <html lang="es">
@@ -22,12 +22,17 @@ const sheetUrl = 'https://docs.google.com/spreadsheets/d/13zG1njwgv2FaguvJdzry9p
   <body>
     <main class="shell is-loading" aria-busy="true">
       <div class="loading-message" role="status">
-        <img src="https://static.wikia.nocookie.net/kickbuttowski/images/a/a9/Bradley_Buttowski.webp/revision/latest?cb=20231025045829&path-prefix=es" alt="Brad Buttowski" />
+        <img
+          src="https://static.wikia.nocookie.net/kickbuttowski/images/a/a9/Bradley_Buttowski.webp/revision/latest?cb=20231025045829&path-prefix=es"
+          alt="Brad Buttowski"
+        />
       </div>
       <header class="hero">
         <p class="eyebrow">Relaciones HOLA</p>
         <h1>ESOBRAD</h1>
-        <p class="intro">Selecciona personas, escribe el nombre de la relación y confirma para guardarla en la planilla.</p>
+        <p class="intro">
+          Selecciona personas, escribe el nombre de la relación y confirma para guardarla en la planilla.
+        </p>
         <a href={sheetUrl} class="sheet-link" target="_blank" rel="noreferrer">Abrir Google Sheets</a>
       </header>
 
@@ -41,12 +46,14 @@ const sheetUrl = 'https://docs.google.com/spreadsheets/d/13zG1njwgv2FaguvJdzry9p
         </div>
 
         <div class="people" aria-label="Personas">
-          {people.map((person) => (
-            <label class="person-option">
-              <input type="checkbox" value={person.id} />
-              <span>{person.name}</span>
-            </label>
-          ))}
+          {
+            people.map((person) => (
+              <label class="person-option">
+                <input type="checkbox" value={person.id} />
+                <span>{person.name}</span>
+              </label>
+            ))
+          }
         </div>
 
         <label class="field">
@@ -74,34 +81,35 @@ const sheetUrl = 'https://docs.google.com/spreadsheets/d/13zG1njwgv2FaguvJdzry9p
     </main>
 
     <script>
-      const STORAGE_KEY = 'esobrad-relaciones';
-      const SHEET_ENDPOINT = 'https://script.google.com/macros/s/AKfycbxmw8Z5gN1Nz5ql5Mqq5tjE7Mpz-eCOiq0mCmnkQQaAFByHFAgIH7eTjMzJ2avR4MYrqQ/exec';
-      const PEOPLE_ORDER = ['luzzini', 'manu', 'mari', 'migue', 'nacho', 'naza', 'teti'];
+      const STORAGE_KEY = "esobrad-relaciones";
+      const SHEET_ENDPOINT =
+        "https://script.google.com/macros/s/AKfycbxmw8Z5gN1Nz5ql5Mqq5tjE7Mpz-eCOiq0mCmnkQQaAFByHFAgIH7eTjMzJ2avR4MYrqQ/exec";
+      const PEOPLE_ORDER = ["luzzini", "manu", "mari", "migue", "nacho", "naza", "teti"];
       const PERSON_ALIASES = {
-        luzzni: 'luzzini',
+        luzzni: "luzzini",
       };
       const peopleNames = {
-        nacho: 'Nacho',
-        teti: 'Teti',
-        naza: 'Naza',
-        manu: 'Manu',
-        luzzini: 'Luzzini',
-        migue: 'Migue',
-        mari: 'Mari',
+        nacho: "Nacho",
+        teti: "Teti",
+        naza: "Naza",
+        manu: "Manu",
+        luzzini: "Luzzini",
+        migue: "Migue",
+        mari: "Mari",
       };
 
       let groups = {};
       let isReady = false;
 
-      const shell = document.querySelector('.shell');
-      const checkboxes = Array.from(document.querySelectorAll('.person-option input'));
-      const nameInput = document.querySelector('#group-name');
-      const selectedKey = document.querySelector('#selected-key');
-      const status = document.querySelector('#status');
-      const relationCount = document.querySelector('#relation-count');
-      const relationsList = document.querySelector('#relations-list');
+      const shell = document.querySelector(".shell");
+      const checkboxes = Array.from(document.querySelectorAll(".person-option input"));
+      const nameInput = document.querySelector("#group-name");
+      const selectedKey = document.querySelector("#selected-key");
+      const status = document.querySelector("#status");
+      const relationCount = document.querySelector("#relation-count");
+      const relationsList = document.querySelector("#relations-list");
 
-      const normalizeKey = (ids) => ids.slice().sort().join('-');
+      const normalizeKey = (ids) => ids.slice().sort().join("-");
       const getSelectedIds = () => checkboxes.filter((input) => input.checked).map((input) => input.value);
       const getCurrentKey = () => normalizeKey(getSelectedIds());
       const setStatus = (message) => {
@@ -109,30 +117,33 @@ const sheetUrl = 'https://docs.google.com/spreadsheets/d/13zG1njwgv2FaguvJdzry9p
       };
 
       const normalizePerson = (value) => {
-        const normalized = String(value ?? '').trim().toLowerCase();
+        const normalized = String(value ?? "")
+          .trim()
+          .toLowerCase();
         return PERSON_ALIASES[normalized] || normalized;
       };
 
-      const rowsToGroups = (rows) => Object.fromEntries(
-        rows
-          .map((row) => {
-            const key = row
-              .slice(0, 7)
-              .map(normalizePerson)
-              .filter((person) => PEOPLE_ORDER.includes(person))
-              .sort()
-              .join('-');
-            const name = String(row[8] ?? '').trim();
-            return [key, name];
-          })
-          .filter(([key, name]) => key && name)
-      );
+      const rowsToGroups = (rows) =>
+        Object.fromEntries(
+          rows
+            .map((row) => {
+              const key = row
+                .slice(0, 7)
+                .map(normalizePerson)
+                .filter((person) => PEOPLE_ORDER.includes(person))
+                .sort()
+                .join("-");
+              const name = String(row[8] ?? "").trim();
+              return [key, name];
+            })
+            .filter(([key, name]) => key && name),
+        );
 
       const normalizeGroupsResponse = (data) => {
-        if (data?.groups && typeof data.groups === 'object') return data.groups;
+        if (data?.groups && typeof data.groups === "object") return data.groups;
         if (Array.isArray(data?.rows)) return rowsToGroups(data.rows);
         if (Array.isArray(data)) return rowsToGroups(data);
-        if (data && typeof data === 'object') return data;
+        if (data && typeof data === "object") return data;
         return {};
       };
 
@@ -150,20 +161,20 @@ const sheetUrl = 'https://docs.google.com/spreadsheets/d/13zG1njwgv2FaguvJdzry9p
           return {};
         }
 
-        const response = await fetch(SHEET_ENDPOINT, { cache: 'no-store' });
-        if (!response.ok) throw new Error('No se pudo cargar Google Sheets');
+        const response = await fetch(SHEET_ENDPOINT, { cache: "no-store" });
+        if (!response.ok) throw new Error("No se pudo cargar Google Sheets");
         return normalizeGroupsResponse(await response.json());
       };
 
       const syncSelectionName = () => {
         const key = getCurrentKey();
-        nameInput.value = key ? groups[key] || '' : '';
-        selectedKey.textContent = key ? `Clave: ${key}` : 'Selecciona una o más personas.';
+        nameInput.value = key ? groups[key] || "" : "";
+        selectedKey.textContent = key ? `Clave: ${key}` : "Selecciona una o más personas.";
       };
 
       const renderRelations = () => {
         const entries = Object.entries(groups).sort(([a], [b]) => a.localeCompare(b));
-        relationsList.innerHTML = '';
+        relationsList.innerHTML = "";
 
         if (!entries.length) {
           relationsList.innerHTML = '<p class="empty">No hay relaciones guardadas.</p>';
@@ -171,36 +182,39 @@ const sheetUrl = 'https://docs.google.com/spreadsheets/d/13zG1njwgv2FaguvJdzry9p
         }
 
         entries.forEach(([key, value]) => {
-          const button = document.createElement('button');
-          const name = document.createElement('span');
-          const detail = document.createElement('small');
+          const button = document.createElement("button");
+          const name = document.createElement("span");
+          const detail = document.createElement("small");
 
-          button.type = 'button';
-          button.className = 'relation-row';
+          button.type = "button";
+          button.className = "relation-row";
           name.textContent = value;
-          detail.textContent = key.split('-').map((id) => peopleNames[id] || id).join(', ');
+          detail.textContent = key
+            .split("-")
+            .map((id) => peopleNames[id] || id)
+            .join(", ");
           button.append(name, detail);
-          button.addEventListener('click', () => {
-            const selected = new Set(key.split('-'));
+          button.addEventListener("click", () => {
+            const selected = new Set(key.split("-"));
             checkboxes.forEach((input) => {
               input.checked = selected.has(input.value);
             });
             nameInput.value = value;
             syncSelectionName();
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+            window.scrollTo({ top: 0, behavior: "smooth" });
           });
           relationsList.append(button);
         });
       };
 
       checkboxes.forEach((input) => {
-        input.addEventListener('change', () => {
+        input.addEventListener("change", () => {
           if (!isReady) return;
           syncSelectionName();
         });
       });
 
-      document.querySelector('#confirm-relation').addEventListener('click', async () => {
+      document.querySelector("#confirm-relation").addEventListener("click", async () => {
         if (!isReady) return;
 
         const people = getSelectedIds();
@@ -208,27 +222,27 @@ const sheetUrl = 'https://docs.google.com/spreadsheets/d/13zG1njwgv2FaguvJdzry9p
         const name = nameInput.value.trim();
 
         if (!key || !name) {
-          setStatus('Falta selección o nombre');
+          setStatus("Falta selección o nombre");
           return;
         }
 
         if (!SHEET_ENDPOINT) {
-          setStatus('Falta configurar SHEET_ENDPOINT en el codigo');
+          setStatus("Falta configurar SHEET_ENDPOINT en el codigo");
           return;
         }
 
-        setStatus('Guardando en Google Sheets...');
+        setStatus("Guardando en Google Sheets...");
 
         try {
           const response = await fetch(SHEET_ENDPOINT, {
-            method: 'POST',
-            headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-            body: JSON.stringify({ action: 'upsert', people, name }),
+            method: "POST",
+            headers: { "Content-Type": "text/plain;charset=utf-8" },
+            body: JSON.stringify({ action: "upsert", people, name }),
           });
-          if (!response.ok) throw new Error('Sheets no respondio correctamente');
+          if (!response.ok) throw new Error("Sheets no respondio correctamente");
 
           setGroups(normalizeGroupsResponse(await response.json()));
-          setStatus('Relación confirmada');
+          setStatus("Relación confirmada");
         } catch (error) {
           setStatus(error.message);
         }
@@ -238,15 +252,19 @@ const sheetUrl = 'https://docs.google.com/spreadsheets/d/13zG1njwgv2FaguvJdzry9p
         .then((loadedGroups) => {
           setGroups(loadedGroups);
           isReady = true;
-          shell.classList.remove('is-loading');
-          shell.removeAttribute('aria-busy');
-          setStatus(SHEET_ENDPOINT ? 'Relaciones cargadas desde Google Sheets' : 'Configura SHEET_ENDPOINT para cargar relaciones');
+          shell.classList.remove("is-loading");
+          shell.removeAttribute("aria-busy");
+          setStatus(
+            SHEET_ENDPOINT
+              ? "Relaciones cargadas desde Google Sheets"
+              : "Configura SHEET_ENDPOINT para cargar relaciones",
+          );
         })
         .catch((error) => {
           setGroups({});
           isReady = true;
-          shell.classList.remove('is-loading');
-          shell.removeAttribute('aria-busy');
+          shell.classList.remove("is-loading");
+          shell.removeAttribute("aria-busy");
           setStatus(error.message);
         });
     </script>
@@ -275,10 +293,16 @@ const sheetUrl = 'https://docs.google.com/spreadsheets/d/13zG1njwgv2FaguvJdzry9p
     min-height: 100vh;
     background:
       radial-gradient(circle at 20% 0%, rgba(47, 140, 255, 0.28), transparent 30rem),
-      radial-gradient(circle at 100% 10%, rgba(131, 199, 255, 0.16), transparent 34rem),
-      var(--bg);
+      radial-gradient(circle at 100% 10%, rgba(131, 199, 255, 0.16), transparent 34rem), var(--bg);
     color: var(--text);
-    font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-family:
+      Inter,
+      ui-sans-serif,
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      "Segoe UI",
+      sans-serif;
   }
 
   button,
